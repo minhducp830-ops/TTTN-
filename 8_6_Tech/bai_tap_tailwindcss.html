@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bài Tập TailwindCSS - Phạm Minh Đức | ĐH Văn Hiến</title>
+  <!-- Nhúng TailwindCSS qua CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#e94560',
+            dark: '#1a1a2e',
+            darker: '#16213e',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-darker min-h-screen font-sans text-white">
+
+  <!--
+    ===================================================
+    BÀI TẬP TAILWINDCSS CƠ BẢN
+    Sinh viên : Phạm Minh Đức
+    MSSV      : 221A290087
+    Trường    : Đại học Văn Hiến
+    Ngày      : 08/06/2026
+    ===================================================
+  -->
+
+  <!-- HEADER -->
+  <header class="bg-dark shadow-lg py-4 px-6">
+    <div class="max-w-4xl mx-auto flex items-center justify-between">
+      <h1 class="text-2xl font-bold text-primary">🎨 Bài Tập TailwindCSS</h1>
+      <nav class="flex gap-6">
+        <a href="#gioi-thieu" class="text-gray-300 hover:text-primary transition-colors duration-200">Giới thiệu</a>
+        <a href="#the-card" class="text-gray-300 hover:text-primary transition-colors duration-200">Card</a>
+        <a href="#form" class="text-gray-300 hover:text-primary transition-colors duration-200">Form</a>
+        <a href="#tong-hop" class="text-gray-300 hover:text-primary transition-colors duration-200">Tổng hợp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 py-8 space-y-12">
+
+    <!-- PHẦN 1: GIỚI THIỆU -->
+    <section id="gioi-thieu">
+      <h2 class="text-3xl font-bold mb-2">📘 Bài Tập: Xây Dựng Giao Diện Với TailwindCSS</h2>
+      <p class="text-gray-400 mb-6">
+        <strong class="text-white">TailwindCSS</strong> là một utility-first CSS framework giúp xây dựng
+        giao diện nhanh chóng mà không cần viết CSS tùy chỉnh. Website:
+        <a href="https://tailwindcss.com" class="text-primary hover:underline" target="_blank">tailwindcss.com</a>
+      </p>
+
+      <!-- Thông tin sinh viên -->
+      <div class="bg-dark rounded-xl p-6 border border-gray-700">
+        <h3 class="text-xl font-semibold mb-4 text-primary">👤 Thông tin sinh viên</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">📛</span>
+            <div>
+              <p class="text-sm text-gray-400">Họ và tên</p>
+              <p class="font-medium">Phạm Minh Đức</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🎓</span>
+            <div>
+              <p class="text-sm text-gray-400">Mã sinh viên</p>
+              <p class="font-medium">221A290087</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🏫</span>
+            <div>
+              <p class="text-sm text-gray-400">Trường</p>
+              <p class="font-medium">Đại học Văn Hiến</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">📅</span>
+            <div>
+              <p class="text-sm text-gray-400">Ngày tạo</p>
+              <p class="font-medium">08/06/2026</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHẦN 2: CARD COMPONENT -->
+    <section id="the-card">
+      <h2 class="text-2xl font-bold mb-2">🃏 Bài Tập 1: Tạo Card Component</h2>
+      <p class="text-gray-400 mb-6">
+        Sử dụng các class TailwindCSS để tạo các card hiển thị thông tin kỹ năng đẹp mắt.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Card 1: Astro -->
+        <div class="bg-dark rounded-xl p-6 border border-gray-700 hover:border-primary hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 cursor-pointer group">
+          <div class="text-4xl mb-4">🚀</div>
+          <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Astro</h3>
+          <p class="text-gray-400 text-sm mb-4">Framework web hiện đại, tạo website siêu nhanh với ít JavaScript nhất.</p>
+          <div class="flex items-center gap-2">
+            <div class="flex-1 bg-gray-700 rounded-full h-2">
+              <div class="bg-orange-500 h-2 rounded-full" style="width: 70%"></div>
+            </div>
+            <span class="text-sm text-gray-400">70%</span>
+          </div>
+        </div>
+
+        <!-- Card 2: TailwindCSS -->
+        <div class="bg-dark rounded-xl p-6 border border-gray-700 hover:border-primary hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 cursor-pointer group">
+          <div class="text-4xl mb-4">🎨</div>
+          <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">TailwindCSS</h3>
+          <p class="text-gray-400 text-sm mb-4">Utility-first CSS framework, xây dựng giao diện đẹp cực kỳ nhanh chóng.</p>
+          <div class="flex items-center gap-2">
+            <div class="flex-1 bg-gray-700 rounded-full h-2">
+              <div class="bg-blue-500 h-2 rounded-full" style="width: 75%"></div>
+            </div>
+            <span class="text-sm text-gray-400">75%</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Vite -->
+        <div class="bg-dark rounded-xl p-6 border border-gray-700 hover:border-primary hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 cursor-pointer group">
+          <div class="text-4xl mb-4">⚡</div>
+          <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Vite</h3>
+          <p class="text-gray-400 text-sm mb-4">Build tool thế hệ mới, khởi động cực nhanh và hỗ trợ Hot Module Replacement.</p>
+          <div class="flex items-center gap-2">
+            <div class="flex-1 bg-gray-700 rounded-full h-2">
+              <div class="bg-yellow-400 h-2 rounded-full" style="width: 65%"></div>
+            </div>
+            <span class="text-sm text-gray-400">65%</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PHẦN 3: FORM -->
+    <section id="form">
+      <h2 class="text-2xl font-bold mb-2">📝 Bài Tập 2: Tạo Form Đăng Ký</h2>
+      <p class="text-gray-400 mb-6">
+        Xây dựng form đăng ký đẹp mắt và có validation cơ bản sử dụng TailwindCSS.
+      </p>
+
+      <div class="bg-dark rounded-xl p-8 border border-gray-700 max-w-lg mx-auto">
+        <h3 class="text-xl font-bold mb-6 text-center">Đăng Ký Tài Khoản</h3>
+
+        <form id="register-form" class="space-y-5" onsubmit="handleSubmit(event)">
+
+          <!-- Họ tên -->
+          <div>
+            <label class="block text-sm font-medium text-gray-400 mb-1" for="fullname">
+              Họ và tên <span class="text-primary">*</span>
+            </label>
+            <input
+              id="fullname"
+              type="text"
+              placeholder="Nhập họ và tên..."
+              class="w-full bg-darker border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200"
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label class="block text-sm font-medium text-gray-400 mb-1" for="email">
+              Email <span class="text-primary">*</span>
+            </label>
+            <input
+              id="email"
+              type="email"
+              placeholder="example@vanhien.edu.vn"
+              class="w-full bg-darker border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200"
+            />
+          </div>
+
+          <!-- Mật khẩu -->
+          <div>
+            <label class="block text-sm font-medium text-gray-400 mb-1" for="password">
+              Mật khẩu <span class="text-primary">*</span>
+            </label>
+            <input
+              id="password"
+              type="password"
+              placeholder="Tối thiểu 8 ký tự..."
+              class="w-full bg-darker border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200"
+            />
+          </div>
+
+          <!-- Nút đăng ký -->
+          <button
+            type="submit"
+            class="w-full bg-primary hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark"
+          >
+            Đăng Ký Ngay 🚀
+          </button>
+
+          <p class="text-center text-gray-400 text-sm">
+            Đã có tài khoản?
+            <a href="#" class="text-primary hover:underline">Đăng nhập</a>
+          </p>
+        </form>
+
+        <!-- Thông báo thành công -->
+        <div id="success-msg" class="hidden mt-4 bg-green-900/30 border border-green-500 rounded-lg p-4 text-center">
+          <p class="text-green-400 font-medium">✅ Đăng ký thành công! Chào mừng bạn.</p>
+        </div>
+
+        <!-- Thông báo lỗi -->
+        <div id="error-msg" class="hidden mt-4 bg-red-900/30 border border-red-500 rounded-lg p-4 text-center">
+          <p id="error-text" class="text-red-400 font-medium"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHẦN 4: TỔNG HỢP CLASS -->
+    <section id="tong-hop">
+      <h2 class="text-2xl font-bold mb-2">📚 Bài Tập 3: Tổng Hợp Các Class TailwindCSS Đã Dùng</h2>
+      <p class="text-gray-400 mb-6">Liệt kê và giải thích các utility class quan trọng đã sử dụng trong bài.</p>
+
+      <div class="bg-dark rounded-xl p-6 border border-gray-700">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          <div>
+            <h3 class="text-lg font-semibold text-primary mb-3">📐 Layout</h3>
+            <ul class="space-y-2 text-sm">
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">flex</code> <span class="text-gray-400 ml-2">→ Bật chế độ Flexbox</span></li>
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">grid</code> <span class="text-gray-400 ml-2">→ Bật chế độ Grid</span></li>
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">grid-cols-3</code> <span class="text-gray-400 ml-2">→ Chia 3 cột bằng nhau</span></li>
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">gap-6</code> <span class="text-gray-400 ml-2">→ Khoảng cách giữa các item</span></li>
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">max-w-4xl mx-auto</code> <span class="text-gray-400 ml-2">→ Căn giữa, giới hạn rộng</span></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-primary mb-3">📏 Spacing</h3>
+            <ul class="space-y-2 text-sm">
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">p-6</code> <span class="text-gray-400 ml-2">→ Padding tất cả chiều 1.5rem</span></li>
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">px-4 py-3</code> <span class="text-gray-400 ml-2">→ Padding ngang/dọc riêng</span></li>
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">mb-6</code> <span class="text-gray-400 ml-2">→ Margin bottom 1.5rem</span></li>
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">space-y-5</code> <span class="text-gray-400 ml-2">→ Khoảng cách dọc các con</span></li>
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">w-full</code> <span class="text-gray-400 ml-2">→ Chiều rộng 100%</span></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-primary mb-3">✍️ Typography</h3>
+            <ul class="space-y-2 text-sm">
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">text-3xl font-bold</code> <span class="text-gray-400 ml-2">→ Cỡ chữ to, đậm</span></li>
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">text-sm</code> <span class="text-gray-400 ml-2">→ Chữ nhỏ</span></li>
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">text-gray-400</code> <span class="text-gray-400 ml-2">→ Màu chữ xám nhạt</span></li>
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">text-center</code> <span class="text-gray-400 ml-2">→ Căn giữa văn bản</span></li>
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">text-primary</code> <span class="text-gray-400 ml-2">→ Màu chủ đạo (đỏ)</span></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-primary mb-3">✨ Hiệu ứng</h3>
+            <ul class="space-y-2 text-sm">
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">rounded-xl</code> <span class="text-gray-400 ml-2">→ Bo góc lớn</span></li>
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">shadow-lg</code> <span class="text-gray-400 ml-2">→ Đổ bóng lớn</span></li>
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">hover:border-primary</code> <span class="text-gray-400 ml-2">→ Đổi border khi hover</span></li>
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">transition-all duration-300</code> <span class="text-gray-400 ml-2">→ Animation mượt 300ms</span></li>
+              <li><code class="bg-gray-800 px-2 py-0.5 rounded text-yellow-400">focus:ring-1 focus:ring-primary</code> <span class="text-gray-400 ml-2">→ Viền khi focus</span></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark border-t border-gray-700 py-6 mt-12">
+    <div class="max-w-4xl mx-auto px-6 text-center text-gray-400">
+      <p class="font-medium text-white">Phạm Minh Đức - MSSV: 221A290087</p>
+      <p class="text-sm mt-1">Sinh viên <span class="text-primary">Đại học Văn Hiến</span> | Bài tập TailwindCSS | 08/06/2026</p>
+    </div>
+  </footer>
+
+  <script>
+    function showError(message) {
+      const errorMsg = document.getElementById('error-msg');
+      const errorText = document.getElementById('error-text');
+      errorText.textContent = message;
+      errorMsg.classList.remove('hidden');
+      setTimeout(() => errorMsg.classList.add('hidden'), 3000);
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const fullname = document.getElementById('fullname').value.trim();
+      const email    = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      // Validation
+      if (!fullname) { showError('⚠️ Vui lòng nhập họ và tên!'); return; }
+      if (!email)    { showError('⚠️ Vui lòng nhập email!'); return; }
+      if (!email.includes('@')) { showError('⚠️ Email không hợp lệ!'); return; }
+      if (!password) { showError('⚠️ Vui lòng nhập mật khẩu!'); return; }
+      if (password.length < 8) { showError('⚠️ Mật khẩu phải có ít nhất 8 ký tự!'); return; }
+
+      // Thành công
+      document.getElementById('register-form').reset();
+      const successMsg = document.getElementById('success-msg');
+      successMsg.classList.remove('hidden');
+      setTimeout(() => successMsg.classList.add('hidden'), 4000);
+    }
+  </script>
+
+</body>
+</html>
