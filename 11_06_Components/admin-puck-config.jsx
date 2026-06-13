@@ -5,6 +5,52 @@ import AdminImage from "./components/admin-image";
 import AdminSection from "./components/admin-section";
 import AdminHero from "./components/admin-hero";
 
+// Shared utilities for background handling
+const resolveBackgroundStyle = (background, defaultColor) => {
+  if (!background) return { backgroundColor: defaultColor, opacity: 1 };
+  const type = background.type;
+  const opacity = background.opacity !== undefined ? background.opacity : 1;
+  if ((type === "image" || type === "gif") && background.imageUrl) {
+    return {
+      backgroundImage: `url('${background.imageUrl}')`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      opacity,
+    };
+  }
+  if (type === "gradient") {
+    return {
+      background: `linear-gradient(${background.direction || "135deg"}, ${background.fromColor || "#667eea"}, ${background.toColor || "#764ba2"})`,
+      opacity,
+    };
+  }
+  return { backgroundColor: background.color || defaultColor, opacity };
+};
+
+const sharedBackgroundField = (defaultColor, defaultFrom, defaultTo) => ({
+  type: "object",
+  label: "Nền section",
+  objectFields: {
+    type: {
+      type: "select",
+      label: "Loại",
+      options: [
+        { label: "Màu", value: "color" },
+        { label: "Gradient", value: "gradient" },
+        { label: "Hình ảnh (png/jpg)", value: "image" },
+        { label: "GIF động", value: "gif" },
+      ],
+    },
+    color: { type: "text", label: "Màu nền", default: defaultColor },
+    fromColor: { type: "text", label: "Gradient từ", default: defaultFrom },
+    toColor: { type: "text", label: "Gradient đến", default: defaultTo },
+    direction: { type: "text", label: "Hướng gradient", default: "135deg" },
+    imageUrl: { type: "text", label: "URL ảnh nền" },
+    opacity: { type: "number", label: "Độ mờ", min: 0, max: 1, step: 0.1, default: 1 },
+  },
+});
+
 // Config — đăng ký 8 components với fields + defaultProps + render.
 const AdminHeroBanner = ({
   background = {},
@@ -19,27 +65,6 @@ const AdminHeroBanner = ({
   descriptionSize = 13,
   button = {},
 }) => {
-  const getBgStyle = () => {
-    const type = background.type;
-    const opacity = background.opacity !== undefined ? background.opacity : 1;
-    if ((type === "image" || type === "gif") && background.imageUrl) {
-      return {
-        backgroundImage: `url('${background.imageUrl}')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        opacity,
-      };
-    }
-    if (type === "gradient") {
-      return {
-        background: `linear-gradient(${background.direction || "135deg"}, ${background.fromColor || "#667eea"}, ${background.toColor || "#764ba2"})`,
-        opacity,
-      };
-    }
-    return { backgroundColor: background.color || "#1a237e", opacity };
-  };
-
   const getCardContainerStyle = () => {
     if (cardPosition === "right")
       return { display: "flex", justifyContent: "flex-end" };
@@ -65,7 +90,7 @@ const AdminHeroBanner = ({
         alignItems: "center",
         padding: "48px 40px",
         boxSizing: "border-box",
-        ...getBgStyle(),
+        ...resolveBackgroundStyle(background, "#1a237e"),
       }}
     >
       <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%" }}>
@@ -158,27 +183,6 @@ const AdminBanChuyenMon = ({
   subtitle = "CLB DOANH NHÂN ĐỒNG THÁP TẠI TP. HỒ CHÍ MINH",
   items = [],
 }) => {
-  const getBgStyle = () => {
-    const type = background.type;
-    const opacity = background.opacity !== undefined ? background.opacity : 1;
-    if ((type === "image" || type === "gif") && background.imageUrl) {
-      return {
-        backgroundImage: `url('${background.imageUrl}')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        opacity,
-      };
-    }
-    if (type === "gradient") {
-      return {
-        background: `linear-gradient(${background.direction || "135deg"}, ${background.fromColor || "#c5cae9"}, ${background.toColor || "#90caf9"})`,
-        opacity,
-      };
-    }
-    return { backgroundColor: background.color || "#e8edf5", opacity };
-  };
-
   return (
     <>
       <style>{`
@@ -189,7 +193,7 @@ const AdminBanChuyenMon = ({
       `}</style>
     <section
       style={{
-        ...getBgStyle(),
+        ...resolveBackgroundStyle(background, "#e8edf5"),
         padding: "64px 32px",
         minHeight: "300px",
         boxSizing: "border-box",
@@ -331,27 +335,6 @@ const AdminAboutOrg = ({
   const setMemberPage = (colIdx, page) =>
     setMemberPages((prev) => ({ ...prev, [colIdx]: page }));
 
-  const getBgStyle = () => {
-    const type = background.type;
-    const opacity = background.opacity !== undefined ? background.opacity : 1;
-    if ((type === "image" || type === "gif") && background.imageUrl) {
-      return {
-        backgroundImage: `url('${background.imageUrl}')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        opacity,
-      };
-    }
-    if (type === "gradient") {
-      return {
-        background: `linear-gradient(${background.direction || "135deg"}, ${background.fromColor || "#e8edf8"}, ${background.toColor || "#d0d8f0"})`,
-        opacity,
-      };
-    }
-    return { backgroundColor: background.color || "#f0f4ff", opacity };
-  };
-
   const colCount = Math.max(columns.length || 2, 1);
   const pageSize = Number(membersPerPage) || 3;
 
@@ -367,7 +350,7 @@ const AdminAboutOrg = ({
       `}</style>
     <section
       style={{
-        ...getBgStyle(),
+        ...resolveBackgroundStyle(background, "#f0f4ff"),
         padding: "60px 32px",
         minHeight: "300px",
         boxSizing: "border-box",
@@ -874,28 +857,7 @@ export const puckConfig = {
     HeroBanner: {
       label: "Hero Banner (Sen Hồng)",
       fields: {
-        background: {
-          type: "object",
-          label: "Nền banner",
-          objectFields: {
-            type: {
-              type: "select",
-              label: "Loại",
-              options: [
-                { label: "Màu", value: "color" },
-                { label: "Gradient", value: "gradient" },
-                { label: "Hình ảnh (png/jpg)", value: "image" },
-                { label: "GIF động", value: "gif" },
-              ],
-            },
-            color: { type: "text", label: "Màu nền", default: "#1a237e" },
-            fromColor: { type: "text", label: "Gradient từ", default: "#667eea" },
-            toColor: { type: "text", label: "Gradient đến", default: "#764ba2" },
-            direction: { type: "text", label: "Hướng gradient", default: "135deg" },
-            imageUrl: { type: "text", label: "URL ảnh nền" },
-            opacity: { type: "number", label: "Độ mờ", min: 0, max: 1, step: 0.1, default: 1 },
-          },
-        },
+        background: sharedBackgroundField("#1a237e", "#667eea", "#764ba2"),
         cardPosition: {
           type: "select",
           label: "Vị trí cụm nội dung",
@@ -979,28 +941,7 @@ export const puckConfig = {
     BanChuyenMon: {
       label: "Các Ban Chuyên Môn",
       fields: {
-        background: {
-          type: "object",
-          label: "Nền section",
-          objectFields: {
-            type: {
-              type: "select",
-              label: "Loại",
-              options: [
-                { label: "Màu", value: "color" },
-                { label: "Gradient", value: "gradient" },
-                { label: "Hình ảnh (png/jpg)", value: "image" },
-                { label: "GIF động", value: "gif" },
-              ],
-            },
-            color: { type: "text", label: "Màu nền", default: "#e8edf5" },
-            fromColor: { type: "text", label: "Gradient từ", default: "#c5cae9" },
-            toColor: { type: "text", label: "Gradient đến", default: "#90caf9" },
-            direction: { type: "text", label: "Hướng gradient", default: "135deg" },
-            imageUrl: { type: "text", label: "URL ảnh nền" },
-            opacity: { type: "number", label: "Độ mờ", min: 0, max: 1, step: 0.1, default: 1 },
-          },
-        },
+        background: sharedBackgroundField("#e8edf5", "#c5cae9", "#90caf9"),
         title: { type: "text", label: "Tiêu đề chính", contentEditable: true },
         subtitle: { type: "text", label: "Tiêu đề phụ", contentEditable: true },
         items: {
@@ -1090,28 +1031,7 @@ export const puckConfig = {
     AboutOrg: {
       label: "Về CLB & Cơ Cấu Tổ Chức",
       fields: {
-        background: {
-          type: "object",
-          label: "Nền section",
-          objectFields: {
-            type: {
-              type: "select",
-              label: "Loại",
-              options: [
-                { label: "Màu", value: "color" },
-                { label: "Gradient", value: "gradient" },
-                { label: "Hình ảnh (png/jpg)", value: "image" },
-                { label: "GIF động", value: "gif" },
-              ],
-            },
-            color: { type: "text", label: "Màu nền", default: "#f0f4ff" },
-            fromColor: { type: "text", label: "Gradient từ", default: "#e8edf8" },
-            toColor: { type: "text", label: "Gradient đến", default: "#d0d8f0" },
-            direction: { type: "text", label: "Hướng gradient", default: "135deg" },
-            imageUrl: { type: "text", label: "URL ảnh nền" },
-            opacity: { type: "number", label: "Độ mờ", min: 0, max: 1, step: 0.1, default: 1 },
-          },
-        },
+        background: sharedBackgroundField("#f0f4ff", "#e8edf8", "#d0d8f0"),
         membersPerPage: {
           type: "number",
           label: "Số thành viên hiển thị mỗi trang",
