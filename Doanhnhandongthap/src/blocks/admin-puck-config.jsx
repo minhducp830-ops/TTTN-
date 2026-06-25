@@ -58,6 +58,262 @@ const sharedBackgroundField = (defaultColor, defaultFrom, defaultTo) => ({
   },
 });
 
+// ─── AdminHeader ────────────────────────────────────────────────────────────
+const AdminHeader = ({
+  background = {},
+  logoUrl = "",
+  logoSize = 40,
+  orgName = "CÂU LẠC BỘ DOANH NHÂN ĐỒNG THÁP\nTẠI TP.HỒ CHÍ MINH",
+  orgNameColor = "#ffffff",
+  links = [],
+  linkColor = "#ffffff",
+  linkHoverColor = "#ffca28",
+  activeLanguage = "VN",
+  languageBtnBg = "linear-gradient(90deg, #d4af37, #f3e5ab)",
+  languageBtnColor = "#111",
+}) => {
+  const bgStyle = resolveBackgroundStyle(background, "#0a47a1");
+  const idRef = useRef(`hdr-${Math.random().toString(36).slice(2, 7)}`);
+  const styleId = idRef.current;
+
+  return (
+    <div id={styleId} style={{ ...bgStyle, position: "relative", zIndex: 50 }}>
+      <style>{`
+        .sh-hdr-link { transition: color 0.3s ease; text-decoration: none; }
+        .sh-hdr-link:hover { color: ${linkHoverColor} !important; }
+        .sh-lang-btn { transition: transform 0.2s ease, opacity 0.2s ease; }
+        .sh-lang-btn:hover { transform: scale(1.05); opacity: 0.9; }
+        @media (max-width: 992px) {
+          #${styleId} .hdr-container { flex-direction: column !important; padding: 12px 16px !important; gap: 16px; }
+          #${styleId} .hdr-links { flex-wrap: wrap !important; justify-content: center !important; }
+        }
+      `}</style>
+      <div className="hdr-container" style={{
+        maxWidth: 1200, margin: "0 auto", padding: "16px 24px",
+        display: "flex", alignItems: "center", justifyContent: "space-between"
+      }}>
+        {/* Left: Logo + Name */}
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          {logoUrl ? (
+            <img src={logoUrl} alt="Logo" style={{ width: logoSize, height: logoSize, objectFit: "contain" }} />
+          ) : (
+             <div style={{ width: logoSize, height: logoSize, borderRadius: "50%", background: "rgba(255,255,255,0.2)", display: "flex", alignItems: "center", justifyContent: "center", color: "white" }}>Logo</div>
+          )}
+          <div style={{ color: orgNameColor, fontSize: 12, fontWeight: 700, lineHeight: 1.3, whiteSpace: "pre-line" }}>
+            {orgName}
+          </div>
+        </div>
+
+        {/* Center: Links */}
+        <div className="hdr-links" style={{ display: "flex", gap: 24, alignItems: "center" }}>
+          {(links || []).map((link, i) => (
+            <a key={i} href={link.url || "#"} className="sh-hdr-link" style={{
+              color: linkColor, fontSize: 13, fontWeight: 600, letterSpacing: "0.02em"
+            }}>
+              {link.label}
+            </a>
+          ))}
+        </div>
+
+        {/* Right: Language switch */}
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <div className="sh-lang-btn" style={{
+            background: languageBtnBg, color: languageBtnColor,
+            padding: "4px 12px", borderRadius: 20, fontSize: 12, fontWeight: 700,
+            cursor: "pointer", display: "flex", gap: 8, alignItems: "center"
+          }}>
+            <span style={{ opacity: activeLanguage === "VN" ? 1 : 0.5 }}>VN</span>
+            <span style={{ opacity: 0.5 }}>|</span>
+            <span style={{ opacity: activeLanguage === "EN" ? 1 : 0.5 }}>EN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// ─── AdminGioiThieuTrang ────────────────────────────────────────────────────
+const AdminGioiThieuTrang = ({
+  background = {},
+  title = "GIỚI THIỆU DOANH NHÂN ĐỒNG THÁP",
+  titleColor = "#4dd0e1",
+  imageUrl = "",
+  heading = "Kết nối – Đồng hành – Phát triển",
+  headingColor = "#4dd0e1",
+  desc1 = "Cộng đồng Doanh nhân Đồng Tháp hướng đến việc xây dựng môi trường kết nối giữa các doanh nghiệp, thúc đẩy hợp tác và tạo ra nhiều giá trị bền vững cho địa phương.",
+  desc2 = "Với tinh thần đổi mới, sáng tạo và phát triển lâu dài, cộng đồng doanh nhân luôn đóng vai trò quan trọng trong việc thúc đẩy kinh tế, hỗ trợ khởi nghiệp và nâng cao năng lực cạnh tranh.",
+  descColor = "rgba(255,255,255,0.75)",
+  visionMissionBg = "rgba(30,30,30,0.6)",
+  visionMissionBorder = "#f59e0b",
+  visionText = "Xây dựng mạng lưới doanh nhân năng động, hiện đại và hội nhập.",
+  missionText = "Kết nối doanh nghiệp – chia sẻ tri thức – tạo giá trị phát triển bền vững.",
+  stats = [],
+}) => {
+  const bgStyle = resolveBackgroundStyle(background, "#111111");
+  const idRef = useRef(`gt-${Math.random().toString(36).slice(2, 7)}`);
+  const styleId = idRef.current;
+
+  return (
+    <div id={styleId} style={{ ...bgStyle, padding: "80px 24px", position: "relative" }}>
+      <style>{`
+        @media (max-width: 992px) {
+          #${styleId} .gt-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+          #${styleId} .gt-stats { flex-wrap: wrap !important; }
+          #${styleId} .gt-stat-item { flex: 1 1 100% !important; margin-bottom: 24px; }
+        }
+      `}</style>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        
+        {/* Main Title */}
+        <div style={{ textAlign: "center", marginBottom: 60 }}>
+          <h2 style={{ fontSize: 24, fontWeight: 700, color: titleColor, textTransform: "uppercase", marginBottom: 12 }}>
+            {title}
+          </h2>
+          <div style={{ width: 60, height: 3, background: visionMissionBorder, margin: "0 auto" }} />
+        </div>
+
+        {/* Content Split */}
+        <div className="gt-grid" style={{
+          display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center", marginBottom: 80
+        }}>
+          {/* Left Image */}
+          <div>
+            {imageUrl ? (
+              <img src={imageUrl} alt="About" style={{ width: "100%", borderRadius: 12, objectFit: "cover", boxShadow: "0 20px 40px rgba(0,0,0,0.4)" }} />
+            ) : (
+              <div style={{ width: "100%", aspectRatio: "4/3", borderRadius: 12, background: "rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(255,255,255,0.4)", border: "2px dashed rgba(255,255,255,0.2)" }}>
+                Chưa có hình ảnh
+              </div>
+            )}
+          </div>
+
+          {/* Right Text */}
+          <div>
+            <h3 style={{ fontSize: 20, fontWeight: 700, color: headingColor, marginBottom: 20 }}>{heading}</h3>
+            <p style={{ fontSize: 14, color: descColor, lineHeight: 1.7, marginBottom: 16 }}>{desc1}</p>
+            <p style={{ fontSize: 14, color: descColor, lineHeight: 1.7, marginBottom: 24 }}>{desc2}</p>
+            
+            {/* Vision Mission Box */}
+            <div style={{
+              background: visionMissionBg, padding: 24, borderRadius: 8,
+              borderLeft: `4px solid ${visionMissionBorder}`
+            }}>
+              <div style={{ marginBottom: 12, fontSize: 13, color: "rgba(255,255,255,0.9)", lineHeight: 1.6 }}>
+                <strong style={{ color: "white" }}>Tầm nhìn: </strong>{visionText}
+              </div>
+              <div style={{ fontSize: 13, color: "rgba(255,255,255,0.9)", lineHeight: 1.6 }}>
+                <strong style={{ color: "white" }}>Sứ mệnh: </strong>{missionText}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="gt-stats" style={{ display: "flex", justifyContent: "space-between", textAlign: "center", gap: 20 }}>
+          {(stats || []).map((s, i) => (
+            <div key={i} className="gt-stat-item" style={{ flex: 1 }}>
+              <div style={{ fontSize: 32, fontWeight: 700, color: headingColor, marginBottom: 8 }}>{s.value}</div>
+              <div style={{ fontSize: 13, color: descColor }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+// ─── AdminHoiVienTrang ──────────────────────────────────────────────────────
+const AdminHoiVienTrang = ({
+  background = {},
+  title = "HỘI VIÊN",
+  titleColor = "#4dd0e1",
+  imageUrl = "",
+  heading = "Cộng đồng doanh nhân cùng phát triển",
+  headingColor = "#4dd0e1",
+  desc1 = "Hội viên là lực lượng nòng cốt tạo nên sự kết nối, chia sẻ và phát triển trong cộng đồng doanh nghiệp Đồng Tháp.",
+  desc2 = "Việc tham gia hội viên mở ra cơ hội mở rộng mạng lưới, trao đổi kinh nghiệm, tiếp cận chương trình hỗ trợ và đồng hành trong các hoạt động xúc tiến thương mại.",
+  descColor = "rgba(255,255,255,0.75)",
+  benefitsTitle = "Quyền lợi hội viên",
+  benefits = [],
+  checkmarkColor = "#f59e0b",
+  stats = [],
+}) => {
+  const bgStyle = resolveBackgroundStyle(background, "#111111");
+  const idRef = useRef(`hv-${Math.random().toString(36).slice(2, 7)}`);
+  const styleId = idRef.current;
+
+  return (
+    <div id={styleId} style={{ ...bgStyle, padding: "80px 24px", position: "relative" }}>
+      <style>{`
+        @media (max-width: 992px) {
+          #${styleId} .hv-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+          #${styleId} .hv-stats { flex-wrap: wrap !important; }
+          #${styleId} .hv-stat-item { flex: 1 1 45% !important; margin-bottom: 32px; }
+        }
+      `}</style>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        
+        {/* Main Title */}
+        <div style={{ textAlign: "center", marginBottom: 60 }}>
+          <h2 style={{ fontSize: 24, fontWeight: 700, color: titleColor, textTransform: "uppercase", marginBottom: 12 }}>
+            {title}
+          </h2>
+          <div style={{ width: 60, height: 3, background: checkmarkColor, margin: "0 auto" }} />
+        </div>
+
+        {/* Content Split */}
+        <div className="hv-grid" style={{
+          display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "start", marginBottom: 80
+        }}>
+          {/* Left Image */}
+          <div>
+            {imageUrl ? (
+              <img src={imageUrl} alt="Hội viên" style={{ width: "100%", borderRadius: 12, objectFit: "cover", boxShadow: "0 20px 40px rgba(0,0,0,0.4)" }} />
+            ) : (
+               <div style={{ width: "100%", aspectRatio: "4/3", borderRadius: 12, background: "rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(255,255,255,0.4)", border: "2px dashed rgba(255,255,255,0.2)" }}>
+                 Chưa có hình ảnh
+               </div>
+            )}
+          </div>
+
+          {/* Right Text & List */}
+          <div>
+            <h3 style={{ fontSize: 20, fontWeight: 700, color: headingColor, marginBottom: 20 }}>{heading}</h3>
+            <p style={{ fontSize: 14, color: descColor, lineHeight: 1.7, marginBottom: 16 }}>{desc1}</p>
+            <p style={{ fontSize: 14, color: descColor, lineHeight: 1.7, marginBottom: 32 }}>{desc2}</p>
+            
+            {/* Benefits Box */}
+            <div style={{ background: "rgba(30,30,30,0.5)", borderRadius: 12, padding: "24px 32px" }}>
+              <h4 style={{ color: headingColor, fontSize: 16, fontWeight: 700, marginBottom: 20 }}>{benefitsTitle}</h4>
+              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                {(benefits || []).map((b, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 12, borderBottom: i === benefits.length - 1 ? "none" : "1px solid rgba(255,255,255,0.05)", paddingBottom: i === benefits.length - 1 ? 0 : 16 }}>
+                    <span style={{ color: checkmarkColor, fontWeight: 700, marginTop: 2 }}>✓</span>
+                    <span style={{ color: "rgba(255,255,255,0.9)", fontSize: 13, lineHeight: 1.5 }}>{b.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="hv-stats" style={{ display: "flex", justifyContent: "space-between", textAlign: "center", gap: 20 }}>
+          {(stats || []).map((s, i) => (
+            <div key={i} className="hv-stat-item" style={{ flex: 1 }}>
+              <div style={{ fontSize: 32, fontWeight: 700, color: headingColor, marginBottom: 8 }}>{s.value}</div>
+              <div style={{ fontSize: 13, color: descColor }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+
 // ─── AdminHanhTrinhBanner ───────────────────────────────────────────────────
 // Dùng useRef để giữ id ổn định (không đổi khi re-render → không mất CSS)
 // Dùng useState để theo dõi hover → hiệu ứng hoạt động ngay trong Puck Editor
@@ -3040,6 +3296,168 @@ export const puckConfig = {
     },
 
     // ────────────────────────────────────────────────────────────────────────────
+    // HEADER
+    // ────────────────────────────────────────────────────────────────────────────
+    Header: {
+      fields: {
+        background: { type: "custom", render: ({ value, onChange }) => <BackgroundField value={value} onChange={onChange} /> },
+        logoUrl: { type: "text", label: "Logo URL" },
+        logoSize: { type: "number", label: "Cỡ Logo" },
+        orgName: { type: "textarea", label: "Tên Tổ chức" },
+        orgNameColor: { type: "text", label: "Màu Tên Tổ chức" },
+        links: {
+          type: "array",
+          label: "Các Liên kết",
+          arrayFields: {
+            label: { type: "text", label: "Nhãn" },
+            url: { type: "text", label: "URL" }
+          }
+        },
+        linkColor: { type: "text", label: "Màu Link" },
+        linkHoverColor: { type: "text", label: "Màu Link (Hover)" },
+        activeLanguage: {
+          type: "radio",
+          label: "Ngôn ngữ đang chọn",
+          options: [{ label: "VN", value: "VN" }, { label: "EN", value: "EN" }]
+        },
+        languageBtnBg: { type: "text", label: "Nền nút Ngôn ngữ" },
+        languageBtnColor: { type: "text", label: "Màu chữ nút Ngôn ngữ" }
+      },
+      defaultProps: {
+        background: { type: "color", color: "#0a47a1" },
+        logoUrl: "",
+        logoSize: 40,
+        orgName: "CÂU LẠC BỘ DOANH NHÂN ĐỒNG THÁP\nTẠI TP.HỒ CHÍ MINH",
+        orgNameColor: "#ffffff",
+        links: [
+          { label: "Trang chủ", url: "#" },
+          { label: "Giới thiệu", url: "#" },
+          { label: "Hội viên", url: "#" },
+          { label: "Hoạt động Ban", url: "#" },
+          { label: "Tin tức & Sự kiện", url: "#" },
+          { label: "Liên hệ", url: "#" }
+        ],
+        linkColor: "#ffffff",
+        linkHoverColor: "#ffca28",
+        activeLanguage: "VN",
+        languageBtnBg: "linear-gradient(90deg, #d4af37, #f3e5ab)",
+        languageBtnColor: "#111"
+      },
+      render: (props) => <AdminHeader {...props} />
+    },
+
+    // ────────────────────────────────────────────────────────────────────────────
+    // GIOI THIEU TRANG
+    // ────────────────────────────────────────────────────────────────────────────
+    GioiThieuTrang: {
+      fields: {
+        background: { type: "custom", render: ({ value, onChange }) => <BackgroundField value={value} onChange={onChange} /> },
+        title: { type: "text", label: "Tiêu đề chính" },
+        titleColor: { type: "text", label: "Màu tiêu đề chính" },
+        imageUrl: { type: "text", label: "URL Hình ảnh" },
+        heading: { type: "text", label: "Tiêu đề phụ" },
+        headingColor: { type: "text", label: "Màu tiêu đề phụ" },
+        desc1: { type: "textarea", label: "Mô tả 1" },
+        desc2: { type: "textarea", label: "Mô tả 2" },
+        descColor: { type: "text", label: "Màu mô tả" },
+        visionMissionBg: { type: "text", label: "Nền khối Tầm nhìn/Sứ mệnh" },
+        visionMissionBorder: { type: "text", label: "Màu viền Tầm nhìn/Sứ mệnh" },
+        visionText: { type: "textarea", label: "Nội dung Tầm nhìn" },
+        missionText: { type: "textarea", label: "Nội dung Sứ mệnh" },
+        stats: {
+          type: "array",
+          label: "Thống kê",
+          arrayFields: {
+            value: { type: "text", label: "Giá trị" },
+            label: { type: "text", label: "Nhãn" }
+          }
+        }
+      },
+      defaultProps: {
+        background: { type: "color", color: "#111111" },
+        title: "GIỚI THIỆU DOANH NHÂN ĐỒNG THÁP",
+        titleColor: "#4dd0e1",
+        imageUrl: "",
+        heading: "Kết nối – Đồng hành – Phát triển",
+        headingColor: "#4dd0e1",
+        desc1: "Cộng đồng Doanh nhân Đồng Tháp hướng đến việc xây dựng môi trường kết nối giữa các doanh nghiệp, thúc đẩy hợp tác và tạo ra nhiều giá trị bền vững cho địa phương.",
+        desc2: "Với tinh thần đổi mới, sáng tạo và phát triển lâu dài, cộng đồng doanh nhân luôn đóng vai trò quan trọng trong việc thúc đẩy kinh tế, hỗ trợ khởi nghiệp và nâng cao năng lực cạnh tranh.",
+        descColor: "rgba(255,255,255,0.75)",
+        visionMissionBg: "rgba(30,30,30,0.6)",
+        visionMissionBorder: "#f59e0b",
+        visionText: "Xây dựng mạng lưới doanh nhân năng động, hiện đại và hội nhập.",
+        missionText: "Kết nối doanh nghiệp – chia sẻ tri thức – tạo giá trị phát triển bền vững.",
+        stats: [
+          { value: "500+", label: "Doanh nghiệp tham gia" },
+          { value: "50+", label: "Sự kiện kết nối mỗi năm" },
+          { value: "100%", label: "Hướng đến phát triển bền vững" }
+        ]
+      },
+      render: (props) => <AdminGioiThieuTrang {...props} />
+    },
+
+    // ────────────────────────────────────────────────────────────────────────────
+    // HOI VIEN TRANG
+    // ────────────────────────────────────────────────────────────────────────────
+    HoiVienTrang: {
+      fields: {
+        background: { type: "custom", render: ({ value, onChange }) => <BackgroundField value={value} onChange={onChange} /> },
+        title: { type: "text", label: "Tiêu đề chính" },
+        titleColor: { type: "text", label: "Màu tiêu đề chính" },
+        imageUrl: { type: "text", label: "URL Hình ảnh" },
+        heading: { type: "text", label: "Tiêu đề phụ" },
+        headingColor: { type: "text", label: "Màu tiêu đề phụ" },
+        desc1: { type: "textarea", label: "Mô tả 1" },
+        desc2: { type: "textarea", label: "Mô tả 2" },
+        descColor: { type: "text", label: "Màu mô tả" },
+        benefitsTitle: { type: "text", label: "Tiêu đề Quyền lợi" },
+        benefits: {
+          type: "array",
+          label: "Danh sách Quyền lợi",
+          arrayFields: {
+            text: { type: "text", label: "Quyền lợi" }
+          }
+        },
+        checkmarkColor: { type: "text", label: "Màu dấu tích" },
+        stats: {
+          type: "array",
+          label: "Thống kê",
+          arrayFields: {
+            value: { type: "text", label: "Giá trị" },
+            label: { type: "text", label: "Nhãn" }
+          }
+        }
+      },
+      defaultProps: {
+        background: { type: "color", color: "#111111" },
+        title: "HỘI VIÊN",
+        titleColor: "#4dd0e1",
+        imageUrl: "",
+        heading: "Cộng đồng doanh nhân cùng phát triển",
+        headingColor: "#4dd0e1",
+        desc1: "Hội viên là lực lượng nòng cốt tạo nên sự kết nối, chia sẻ và phát triển trong cộng đồng doanh nghiệp Đồng Tháp.",
+        desc2: "Việc tham gia hội viên mở ra cơ hội mở rộng mạng lưới, trao đổi kinh nghiệm, tiếp cận chương trình hỗ trợ và đồng hành trong các hoạt động xúc tiến thương mại.",
+        descColor: "rgba(255,255,255,0.75)",
+        benefitsTitle: "Quyền lợi hội viên",
+        benefits: [
+          { text: "Tham gia các chương trình kết nối doanh nghiệp" },
+          { text: "Tiếp cận hoạt động đào tạo và hội thảo chuyên đề" },
+          { text: "Nhận thông tin thị trường và cơ hội hợp tác" },
+          { text: "Tham gia các hoạt động cộng đồng doanh nhân" },
+          { text: "Đồng hành cùng các chương trình phát triển địa phương" }
+        ],
+        checkmarkColor: "#f59e0b",
+        stats: [
+          { value: "800+", label: "Hội viên" },
+          { value: "120+", label: "Đối tác" },
+          { value: "40+", label: "Sự kiện / năm" },
+          { value: "12", label: "Nhóm kết nối" }
+        ]
+      },
+      render: (props) => <AdminHoiVienTrang {...props} />
+    },
+
+    // ────────────────────────────────────────────────────────────────────────────
     // FOOTER
     // ────────────────────────────────────────────────────────────────────────────
     Footer: {
@@ -3179,7 +3597,7 @@ export const puckConfig = {
     { title: "Nâng cao", components: ["Hero"] },
     {
       title: "CLB – Sen Hồng",
-      components: ["HeroBanner", "BanChuyenMon", "AboutOrg", "HoiVienBanner", "HanhTrinhBanner", "TinTucSuKien", "GiaTriCongDong", "LienHeBanner", "Footer"],
+      components: ["Header", "GioiThieuTrang", "HoiVienTrang", "HeroBanner", "BanChuyenMon", "AboutOrg", "HoiVienBanner", "HanhTrinhBanner", "TinTucSuKien", "GiaTriCongDong", "LienHeBanner", "Footer"],
     },
   ],
 
