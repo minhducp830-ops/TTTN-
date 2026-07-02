@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+/* Disable AOS (opacity = 0) inside Puck Editor iframe where AOS JS is not running */
+html body:not(.aos-enabled) [data-aos],
+html body:not(.aos-enabled) [data-aos][data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
