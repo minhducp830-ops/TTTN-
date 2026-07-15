@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Đăng ký dự thi Miss & Mister Hào Khí Du Hiệp - Sự kiện bình chọn trong game.">
+    <title>Đăng Ký Tham Gia - Miss & Mister Hào Khí Du Hiệp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+
+        <!-- Thanh điều hướng trên cùng -->
+        <header class="top-bar">
+            <div class="top-bar-left">
+                <img src="assets/iconapp.png" alt="Icon App" class="top-bar-icon">
+            </div>
+
+            <nav class="top-nav" aria-label="Điều hướng chính">
+                <a href="#" class="nav-icon" title="Trang chủ" aria-label="Trang chủ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                </a>
+                <a href="#" class="nav-icon" title="Facebook" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                    </svg>
+                </a>
+                <img src="assets/đn.png" alt="Đăng nhập" class="login-btn-img">
+            </nav>
+        </header>
+
+        <!-- Hero Section: Logo + Tiêu đề + Menu -->
+        <div class="content-wrapper">
+            <img src="assets/Logo-HaoKhiDuHiep.png" alt="Logo Hào Khí Du Hiệp" class="hero-logo">
+            <img src="assets/text.png" alt="Miss & Mister Hào Khí Du Hiệp" class="main-title">
+
+            <!-- Menu điều hướng chính -->
+            <div class="menu-bar-container">
+                <img src="assets/khungdautrang.png" alt="" class="menu-bar-bg" aria-hidden="true">
+                <div class="menu-buttons">
+                    <img src="assets/thele.png" alt="Thể Lệ" class="menu-btn" id="btn-thele" role="button" tabindex="0">
+                    <img src="assets/hd.png" alt="Hướng Dẫn" class="menu-btn" id="btn-huongdan" role="button" tabindex="0">
+                    <img src="assets/votengay.png" alt="Tham Gia Ngay" class="menu-btn center-btn" id="btn-votengay" role="button" tabindex="0">
+                    <img src="assets/taigame.png" alt="Tải Game" class="menu-btn" id="btn-taigame" role="button" tabindex="0">
+                    <img src="assets/napthe.png" alt="Nạp Thẻ" class="menu-btn" id="btn-napthe" role="button" tabindex="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Đăng Ký Dự Thi -->
+        <section class="form-section" aria-labelledby="form-heading">
+            <img src="assets/dkdt.png" alt="Đăng Ký Dự Thi" class="dkdt-header" id="form-heading">
+
+            <div class="form-container">
+                <!-- Cột trái: Upload ảnh dự thi -->
+                <div class="left-form">
+                    <div class="main-image-upload">
+                        <img src="assets/themanh.png" alt="Thêm ảnh dự thi chính" role="button" tabindex="0">
+                    </div>
+                    <div class="small-images-upload">
+                        <img src="assets/themanhnho.png" alt="Thêm ảnh nhỏ 1" role="button" tabindex="0">
+                        <img src="assets/themanhnho.png" alt="Thêm ảnh nhỏ 2" role="button" tabindex="0">
+                        <img src="assets/themanhnho.png" alt="Thêm ảnh nhỏ 3" role="button" tabindex="0">
+                    </div>
+                    <p class="required-note">*Bắt buộc phải đăng ký đủ 4 ảnh dự thi</p>
+                </div>
+
+                <!-- Cột phải: Thông tin & Form nhập -->
+                <div class="right-form">
+                    <div class="player-info">
+                        <p>Nhân vật: <strong>Lục Trà Bạc Hà</strong></p>
+                        <p>Bang hội: <strong>Lạc Viên</strong></p>
+                        <p>Máy chủ: <strong>S1 - Lý Bạch</strong></p>
+                    </div>
+
+                    <!-- Chọn hạng mục thi -->
+                    <div class="gender-selection" role="radiogroup" aria-label="Chọn hạng mục thi">
+                        <div class="gender-option active" role="radio" aria-checked="true" tabindex="0">
+                            <div class="radio-circle" aria-hidden="true">
+                                <div class="radio-inner"></div>
+                            </div>
+                            <img src="assets/thimiss.png" alt="Thi Miss" class="gender-btn">
+                        </div>
+                        <div class="gender-option" role="radio" aria-checked="false" tabindex="0">
+                            <div class="radio-circle" aria-hidden="true">
+                                <div class="radio-inner"></div>
+                            </div>
+                            <img src="assets/thimisster.png" alt="Thi Misster" class="gender-btn">
+                        </div>
+                    </div>
+
+                    <!-- Địa chỉ nhận thưởng -->
+                    <div class="input-group">
+                        <div class="input-field full-width">
+                            <label for="input-address" class="sr-only">Địa chỉ liên hệ nhận thưởng</label>
+                            <input id="input-address" type="text" placeholder="Nhập địa chỉ liên hệ nhận thưởng" autocomplete="street-address">
+                        </div>
+                    </div>
+
+                    <!-- Số điện thoại & Khu vực -->
+                    <div class="input-group two-cols">
+                        <div class="input-field">
+                            <label for="input-phone" class="sr-only">Số điện thoại</label>
+                            <input id="input-phone" type="tel" placeholder="Nhập số điện thoại" autocomplete="tel">
+                        </div>
+                        <div class="input-field">
+                            <label for="input-region" class="sr-only">Khu vực</label>
+                            <input id="input-region" type="text" placeholder="Chọn khu vực">
+                        </div>
+                    </div>
+
+                    <!-- Upload CMND/CCCD -->
+                    <div class="id-cards">
+                        <p>Nhập ảnh CMND/CCCD mặt trước và sau</p>
+                        <div class="id-cards-images">
+                            <img src="assets/mattruoc.png" alt="Upload mặt trước CMND/CCCD" role="button" tabindex="0">
+                            <img src="assets/matsau.png" alt="Upload mặt sau CMND/CCCD" role="button" tabindex="0">
+                        </div>
+                    </div>
+
+                    <!-- Giới thiệu bản thân -->
+                    <div class="input-group">
+                        <div class="input-field textarea-field">
+                            <label for="input-bio" class="sr-only">Nội dung giới thiệu</label>
+                            <textarea id="input-bio" placeholder="Nhập nội dung giới thiệu (không quá 300 ký tự)" maxlength="300"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Link video dự thi -->
+                    <div class="input-group">
+                        <div class="input-field full-width">
+                            <label for="input-video" class="sr-only">Link video dự thi</label>
+                            <input id="input-video" type="url" placeholder="Nhập link video dự thi">
+                        </div>
+                    </div>
+
+                    <!-- Nút hành động -->
+                    <div class="action-buttons">
+                        <div class="btn-dongy-wrapper">
+                            <img src="assets/buttondongy.png" alt="Đồng ý đăng ký" class="action-btn btn-dongy" id="btn-confirm" role="button" tabindex="0">
+                        </div>
+                        <img src="assets/buttonhuybo.png" alt="Hủy bỏ" class="action-btn btn-huybo" id="btn-cancel" role="button" tabindex="0">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Popup: Thể Lệ -->
+    <div id="popup-thele" class="popup-overlay" role="dialog" aria-modal="true" aria-label="Thể Lệ">
+        <div class="popup-content">
+            <img src="assets/popup_thele.png" alt="Thể Lệ">
+            <span class="invisible-close" onclick="closePopup('popup-thele')" aria-label="Đóng popup Thể Lệ" role="button" tabindex="0"></span>
+        </div>
+    </div>
+
+    <!-- Popup: Hướng Dẫn -->
+    <div id="popup-huongdan" class="popup-overlay" role="dialog" aria-modal="true" aria-label="Hướng Dẫn">
+        <div class="popup-content">
+            <img src="assets/popup_huongdan.png" alt="Hướng Dẫn">
+            <span class="invisible-close" onclick="closePopup('popup-huongdan')" aria-label="Đóng popup Hướng Dẫn" role="button" tabindex="0"></span>
+        </div>
+    </div>
+
+    <!-- Popup: Đăng ký thành công -->
+    <div id="popup-success" class="popup-overlay" role="dialog" aria-modal="true" aria-label="Đăng ký thành công">
+        <div class="popup-content small-popup">
+            <div class="success-box">
+                <span class="close-btn success-close" onclick="closePopup('popup-success')" aria-label="Đóng" role="button" tabindex="0">&times;</span>
+                <p>ĐÃ ĐĂNG KÝ THÀNH CÔNG</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
