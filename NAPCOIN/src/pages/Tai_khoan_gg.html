@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tài khoản – MYE</title>
+  <meta name="description" content="Quản lý thông tin tài khoản MYE" />
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <!-- Google Font: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../assets/css/Tai_khoan.css" />
+</head>
+<body>
+
+  <!-- ==================== BANNER ĐẦU TRANG ==================== -->
+  <section class="account-banner">
+    <div class="banner-inner">
+      <!-- Avatar -->
+      <div style="margin-right: 40px; display: flex; justify-content: center; align-items: center;">
+        <svg width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+          <!-- Cyan Background -->
+          <circle cx="120" cy="120" r="120" fill="#25B7D3" />
+          
+          <!-- Left Half Face (Lighter Yellow) -->
+          <path d="M 120,40 A 80,80 0 0,0 120,200 Z" fill="#FCE54D" />
+          
+          <!-- Right Half Face (Darker Yellow) -->
+          <path d="M 120,40 A 80,80 0 0,1 120,200 Z" fill="#F2C823" />
+
+          <!-- Left Eye -->
+          <path d="M 80,110 Q 95,90 110,110" fill="none" stroke="#614436" stroke-width="8" stroke-linecap="round" />
+          <!-- Right Eye -->
+          <path d="M 130,110 Q 145,90 160,110" fill="none" stroke="#614436" stroke-width="8" stroke-linecap="round" />
+
+          <!-- Mouth (Red semi-circle) -->
+          <path d="M 90,135 C 90,165 150,165 150,135 Z" fill="#EE3E46" />
+
+          <!-- Tongue (Pink) -->
+          <path d="M 106,135 L 134,135 L 134,164 A 14,14 0 0,1 106,164 Z" fill="#F6859D" />
+          <line x1="120" y1="135" x2="120" y2="168" stroke="#DE5B78" stroke-width="3" stroke-linecap="round" />
+        </svg>
+      </div>
+
+      <!-- User Info -->
+      <div class="banner-info">
+        <h3 class="user-name">Nguyễn Văn A</h3>
+        <div class="info-row">
+          <i class="bi bi-person-fill"></i> Tài khoản: fb.112314335
+        </div>
+        <div class="info-row">
+          <i class="bi bi-shield-lock-fill"></i> MYE ID: 1123123214
+        </div>
+        <div class="info-row">
+          <i class="bi bi-calendar-event"></i> Ngày tạo tài khoản: 19/06/2026
+        </div>
+      </div>
+
+      <!-- Banner Tabs -->
+      <div class="banner-tabs">
+        <button class="banner-tab-btn active">Tài khoản</button>
+        <button class="banner-tab-btn">Bảo mật</button>
+        <button class="banner-tab-btn">Lịch sử giao dịch</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="main-container">
+    
+    <!-- Mức độ bảo mật -->
+    <div class="security-level-section">
+      <div class="security-chart">
+        <!-- Vòng tròn 20% -->
+        <img src="../assets/images/tai_khoan/20_percent.png" alt="20% Security" />
+      </div>
+      <div class="security-text">
+        <h3>Mức độ bảo mật</h3>
+        <p>Tài khoản của bạn hiện tại có thể bị đe dọa bảo mật. Hãy hoàn thiện các thông tin bên dưới.</p>
+      </div>
+    </div>
+
+    <!-- Tiêu đề phần thông tin -->
+    <h2 class="section-title">Thông tin tài khoản</h2>
+    <p class="section-subtitle">Bạn có thể cập nhật Hồ sơ Công khai của mình tại đây và thông tin sẽ tự động đồng bộ tất cả các tài khoản Game đã được kết nối.</p>
+
+    <!-- CARD 1: Thông tin cá nhân -->
+    <div class="account-card">
+      <div class="card-header-custom">
+        <div class="card-title-group">
+          <div class="card-icon-bg" style="background: transparent;">
+            <svg width="80" height="80" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="120" cy="120" r="120" fill="#25B7D3" />
+              <path d="M 120,40 A 80,80 0 0,0 120,200 Z" fill="#FCE54D" />
+              <path d="M 120,40 A 80,80 0 0,1 120,200 Z" fill="#F2C823" />
+              <path d="M 80,110 Q 95,90 110,110" fill="none" stroke="#614436" stroke-width="8" stroke-linecap="round" />
+              <path d="M 130,110 Q 145,90 160,110" fill="none" stroke="#614436" stroke-width="8" stroke-linecap="round" />
+              <path d="M 90,135 C 90,165 150,165 150,135 Z" fill="#EE3E46" />
+              <path d="M 106,135 L 134,135 L 134,164 A 14,14 0 0,1 106,164 Z" fill="#F6859D" />
+              <line x1="120" y1="135" x2="120" y2="168" stroke="#DE5B78" stroke-width="3" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="card-title-text">
+            <h4>Thông tin cá nhân</h4>
+            <span>Chưa hoàn thiện</span>
+          </div>
+        </div>
+        <div id="info-header-default">
+          <button class="btn-outline-orange" id="btn-edit-info">Chỉnh Sửa</button>
+        </div>
+        <div id="info-header-edit" style="display: none;">
+          <button class="btn-outline-gray" id="btn-cancel-info" style="margin-right: 10px;">Hủy</button>
+          <button class="btn-solid-orange" id="btn-save-info">Lưu</button>
+        </div>
+      </div>
+
+      <!-- Dữ liệu thông tin cá nhân (TRẠNG THÁI MẶC ĐỊNH) -->
+      <div id="info-default-state">
+        <!-- Họ và tên -->
+        <div class="data-row">
+          <div class="data-label"><i class="bi bi-person-fill"></i> Họ và tên</div>
+          <div class="data-value">Nguyễn Văn A</div>
+        </div>
+        <!-- Giới tính -->
+        <div class="data-row">
+          <div class="data-label"><i class="bi bi-people-fill"></i> Giới tính</div>
+          <div class="data-value">Nam</div>
+        </div>
+        <!-- Ngày sinh -->
+        <div class="data-row">
+          <div class="data-label"><i class="bi bi-calendar3"></i> Ngày sinh</div>
+          <div class="data-value">01/01/1999</div>
+        </div>
+        <!-- Địa chỉ -->
+        <div class="data-row">
+          <div class="data-label"><i class="bi bi-geo-alt-fill"></i> Địa chỉ</div>
+          <div class="data-value">TP.Hồ Chí Minh</div>
+        </div>
+        <!-- Email -->
+        <div class="data-row">
+          <div class="data-label"><i class="bi bi-envelope-fill"></i> Email</div>
+          <div class="data-value">Gameee@gmail.com <i class="bi bi-check-circle-fill icon-check-green"></i></div>
+        </div>
+        <!-- Số điện thoại -->
+        <div class="data-row">
+          <div class="data-label"><i class="bi bi-telephone-fill"></i> Số điện thoại</div>
+          <div class="data-value text-italic-gray">Chưa có số điện thoại</div>
+          <button class="btn-outline-orange">Liên kết xác thực</button>
+        </div>
+      </div>
+
+      <!-- Dữ liệu thông tin cá nhân (TRẠNG THÁI CHỈNH SỬA) -->
+      <div id="info-edit-state" style="display: none;">
+        <!-- Họ và tên -->
+        <div class="data-row">
+          <div class="data-label"><i class="bi bi-person-fill"></i> Họ và tên</div>
+          <div class="data-value">
+            <input type="text" class="info-edit-input" value="Nguyễn Văn A" />
+          </div>
+        </div>
+        <!-- Giới tính -->
+        <div class="data-row">
+          <div class="data-label"><i class="bi bi-people-fill"></i> Giới tính</div>
+          <div class="data-value">
+            <select class="info-edit-select">
+              <option value="Nam" selected>Nam</option>
+              <option value="Nữ">Nữ</option>
+              <option value="Khác">Khác</option>
+            </select>
+          </div>
+        </div>
+        <!-- Ngày sinh -->
+        <div class="data-row">
+          <div class="data-label"><i class="bi bi-calendar3"></i> Ngày sinh</div>
+          <div class="data-value">
+            <input type="date" class="info-edit-input" value="1999-01-01" />
+          </div>
+        </div>
+        <!-- Địa chỉ -->
+        <div class="data-row">
+          <div class="data-label"><i class="bi bi-geo-alt-fill"></i> Địa chỉ</div>
+          <div class="data-value">
+            <input type="text" class="info-edit-input" value="TP.Hồ Chí Minh" />
+          </div>
+        </div>
+        <!-- Email -->
+        <div class="data-row">
+          <div class="data-label"><i class="bi bi-envelope-fill"></i> Email</div>
+          <div class="data-value">
+            <input type="email" class="info-edit-input" value="Gameee@gmail.com" />
+            <i class="bi bi-check-circle-fill icon-check-green" style="margin-left: 15px;"></i>
+          </div>
+        </div>
+        <!-- Số điện thoại -->
+        <div class="data-row">
+          <div class="data-label"><i class="bi bi-telephone-fill"></i> Số điện thoại</div>
+          <div class="data-value text-italic-gray">Chưa có số điện thoại</div>
+          <button class="btn-outline-orange" style="margin-left: 15px;">Liên kết xác thực</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2: Đồng bộ tài khoản GG -->
+    <div class="account-card">
+      <div class="card-header-custom" style="margin-bottom: 20px;">
+        <div class="card-title-group">
+          <div class="card-icon-bg" style="background: transparent;">
+            <svg width="80" height="80" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="120" cy="120" r="120" fill="#25B7D3" />
+              <path d="M 120,40 A 80,80 0 0,0 120,200 Z" fill="#FCE54D" />
+              <path d="M 120,40 A 80,80 0 0,1 120,200 Z" fill="#F2C823" />
+              <path d="M 80,110 Q 95,90 110,110" fill="none" stroke="#614436" stroke-width="8" stroke-linecap="round" />
+              <path d="M 130,110 Q 145,90 160,110" fill="none" stroke="#614436" stroke-width="8" stroke-linecap="round" />
+              <path d="M 90,135 C 90,165 150,165 150,135 Z" fill="#EE3E46" />
+              <path d="M 106,135 L 134,135 L 134,164 A 14,14 0 0,1 106,164 Z" fill="#F6859D" />
+              <line x1="120" y1="135" x2="120" y2="168" stroke="#DE5B78" stroke-width="3" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="card-title-text">
+            <h4>Đồng bộ tài khoản</h4>
+          </div>
+        </div>
+        <button class="card-chevron-btn" id="btn-toggle-sync"><i class="bi bi-chevron-right"></i></button>
+      </div>
+
+      <div style="padding-left: 20px;">
+        <div style="font-size: 15px; font-weight: 700; color: #282828; margin-bottom: 15px;">Tài khoản hiện tại</div>
+        
+        <!-- TRẠNG THÁI 1: CHƯA ĐỒNG BỘ -->
+        <div id="sync-social-default">
+          <div class="sync-row-default">
+            <div class="sync-item-group">
+              <div class="sync-square-icon" style="background: transparent;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 48 48">
+                  <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/>
+                  <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/>
+                  <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/>
+                  <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/>
+                </svg>
+              </div>
+              <div class="sync-text-group">
+                <strong>Nguyễn Văn A</strong>
+                <span>nguyenvana@gmail.com</span>
+              </div>
+            </div>
+            
+            <i class="bi bi-arrow-left-right sync-arrow-icon"></i>
+            
+            <div class="sync-item-group">
+              <div class="sync-square-icon"><i class="bi bi-person-fill"></i></div>
+              <div class="sync-text-group" style="max-width: 250px;">
+                <strong style="color: #282828; font-size: 14px;">Chưa có tài khoản MYE</strong>
+              </div>
+            </div>
+            
+            <button class="btn-not-synced">Chưa đồng bộ</button>
+          </div>
+        </div>
+
+        <!-- TRẠNG THÁI 2: FORM TẠO TÀI KHOẢN MYE -->
+        <div id="sync-social-form" style="display: none;">
+          <!-- Google Info -->
+          <div class="sync-row-default" style="margin-bottom: 25px;">
+            <div class="sync-item-group">
+              <div class="sync-square-icon" style="background: transparent;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 48 48">
+                  <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/>
+                  <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/>
+                  <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/>
+                  <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/>
+                </svg>
+              </div>
+              <div class="sync-text-group">
+                <strong>Nguyễn Văn A</strong>
+                <span>nguyenvana@gmail.com</span>
+              </div>
+            </div>
+            <div class="sync-text-value" style="border:1px solid #D9D9D9; padding: 4px 12px; border-radius: 4px;">gg.01020</div>
+          </div>
+          
+          <div class="sync-form-container">
+            <div class="sync-form-text">
+              <strong>Đồng bộ tài khoản MYE</strong>
+              <span>Chỉ đồng bộ tài khoản MYE chưa có dữ liệu trong Game. Sau khi đồng bộ, bạn có thể đăng nhập bằng Google hoặc tài khoản MYE</span>
+            </div>
+
+            <div class="mye-input-wrapper">
+              <div class="mye-input-label">Tạo tên đăng nhập MYE</div>
+              <input type="text" class="mye-input-field" placeholder="Tối thiểu 6 kí tự" />
+            </div>
+
+            <div class="mye-input-wrapper">
+              <div class="mye-input-label">Tạo mật khẩu</div>
+              <input type="password" class="mye-input-field" placeholder="Tối thiểu 8 kí tự" />
+            </div>
+
+            <div class="mye-input-wrapper">
+              <div class="mye-input-label">Xác nhận lại mật khẩu</div>
+              <input type="password" class="mye-input-field" placeholder="Tối thiểu 8 kí tự" />
+            </div>
+
+            <button class="btn-submit-sync" id="btn-submit-sync">Xác nhận đồng bộ</button>
+          </div>
+        </div>
+
+        <!-- TRẠNG THÁI 3: ĐÃ ĐỒNG BỘ THÀNH CÔNG -->
+        <div id="sync-social-success" style="display: none;">
+          <!-- Top Row (GG) -->
+          <div class="sync-row-default" style="margin-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
+            <div class="sync-item-group">
+              <div class="sync-square-icon" style="background: transparent;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 48 48">
+                  <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/>
+                  <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/>
+                  <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/>
+                  <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/>
+                </svg>
+              </div>
+              <div class="sync-text-group">
+                <strong>Nguyễn Văn A</strong>
+                <span>nguyenvana@gmail.com</span>
+              </div>
+            </div>
+            <div class="sync-text-value" style="border:1px solid #D9D9D9; padding: 4px 12px; border-radius: 4px;">gg.01020</div>
+          </div>
+
+          <!-- Middle Connection Line -->
+          <div style="width: 1240px; text-align: center; margin: -10px auto; position: relative; z-index: 2;">
+            <span style="background: #D1F0E4; color: #10B981; padding: 4px 16px; border-radius: 20px; font-size: 12px; font-weight: 600;">Đã đồng bộ</span>
+          </div>
+
+          <!-- Bottom Row (MYE) -->
+          <div class="sync-row-default" style="margin-top: -10px; border-top-left-radius: 0; border-top-right-radius: 0;">
+            <div class="sync-item-group">
+              <div class="sync-square-icon"><i class="bi bi-person-fill"></i></div>
+              <div class="sync-text-group">
+                <strong>Tài khoản MYE</strong>
+              </div>
+            </div>
+            <div class="sync-text-value" style="border:1px solid #D9D9D9; padding: 4px 12px; border-radius: 4px;">myrpro123</div>
+          </div>
+
+          <!-- Green Success Box -->
+          <div class="sync-success-box">
+            <i class="bi bi-check-circle-fill"></i>
+            Tài khoản đã được đồng bộ. Bạn có thể đăng nhập bằng tài khoản Google hoặc tài khoản MYE
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3: Lịch sử hoạt động -->
+    <div class="account-card" style="margin-bottom: 0;">
+      <div class="card-header-custom" style="margin-bottom: 0;" id="history-header">
+        <div class="card-title-group">
+          <div class="card-icon-bg" style="background: transparent;">
+            <svg width="80" height="80" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="120" cy="120" r="120" fill="#25B7D3" />
+              <path d="M 120,40 A 80,80 0 0,0 120,200 Z" fill="#FCE54D" />
+              <path d="M 120,40 A 80,80 0 0,1 120,200 Z" fill="#F2C823" />
+              <path d="M 80,110 Q 95,90 110,110" fill="none" stroke="#614436" stroke-width="8" stroke-linecap="round" />
+              <path d="M 130,110 Q 145,90 160,110" fill="none" stroke="#614436" stroke-width="8" stroke-linecap="round" />
+              <path d="M 90,135 C 90,165 150,165 150,135 Z" fill="#EE3E46" />
+              <path d="M 106,135 L 134,135 L 134,164 A 14,14 0 0,1 106,164 Z" fill="#F6859D" />
+              <line x1="120" y1="135" x2="120" y2="168" stroke="#DE5B78" stroke-width="3" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="card-title-text">
+            <h4>Lịch sử hoạt động</h4>
+          </div>
+        </div>
+        <button class="card-chevron-btn" id="btn-toggle-history"><i class="bi bi-chevron-right"></i></button>
+      </div>
+
+      <!-- Phần mở rộng Lịch sử hoạt động -->
+      <div id="history-content" style="display: none; padding-top: 20px;">
+        <div class="history-section">
+          <div class="history-title-main">Gỡ tất cả các phiên đăng nhập đã lưu</div>
+          <div class="history-title-sub">Tăng cường kiểm soát bảo vệ tài khoản của bạn</div>
+
+          <div class="history-warning-box">
+            <div class="history-warning-text">
+              <p>Khi thực hiện thao tác này, các thiết bị đang đăng nhập sẽ bị đăng xuất. Bạn sẽ cần phải đăng nhập lại.</p>
+              <span>Lưu ý: Để đảm bảo an toàn tài khoản, vui lòng đổi mật khẩu trước khi tiến hành gỡ toàn bộ các phiên bản đăng nhập trên mọi thiết bị.</span>
+            </div>
+            <button class="btn-remove-all">Gỡ tất cả</button>
+          </div>
+
+          <div class="history-table">
+            <div class="history-header-row">
+              <div class="col-time">Th?i gian</div>
+              <div class="col-activity">Ho?t �?ng</div>
+              <div class="col-device">Thi?t b?</div>
+              <div class="col-ip">IP</div>
+            </div>
+
+            <!-- Row 1 -->
+            <div class="history-data-row">
+              <div class="col-time"><i class="bi bi-clock"></i> 02/06/2026 08:53:18</div>
+              <div class="col-activity">Kích hoạt tài khoản</div>
+              <div class="col-device">
+                <!-- SVG Icon Chrome -->
+                <svg class="device-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                  <path fill="#4CAF50" d="M24 4C12.96 4 4 12.96 4 24s8.96 20 20 20 20-8.96 20-20S35.04 4 24 4zm0 25c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+                  <path fill="#FFC107" d="M24 14c-1.89 0-3.64.53-5.11 1.44l-5.63-9.76C16.48 4.63 20.12 4 24 4c8.41 0 15.6 5.18 18.66 12.5h-11.3c-1.32-1.52-3.23-2.5-5.36-2.5z"/>
+                  <path fill="#F44336" d="M24 34c-1.89 0-3.64-.53-5.11-1.44l-5.63 9.76C16.48 43.37 20.12 44 24 44c8.41 0 15.6-5.18 18.66-12.5h-11.3c-1.32 1.52-3.23 2.5-5.36 2.5z"/>
+                  <path fill="#2196F3" d="M4 24c0 3.3.81 6.42 2.24 9.17l8.44-14.61A9.97 9.97 0 0 1 19 14h-5.74C13.26 14 4 24 4 24z"/>
+                </svg>
+                <div class="device-info">
+                  <strong>Chrome Mobile</strong>
+                  <span>Mobile</span>
+                </div>
+              </div>
+              <div class="col-ip">210.86.237.19</div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="history-data-row">
+              <div class="col-time"><i class="bi bi-clock"></i> 02/06/2026 08:52:18</div>
+              <div class="col-activity">Cập nhật thông tin tài khoản</div>
+              <div class="col-device">
+                <!-- SVG Icon Safari -->
+                <svg class="device-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                  <path fill="#2196F3" d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z"/>
+                  <path fill="#90CAF9" d="M24,7c9.374,0,17,7.626,17,17s-7.626,17-17,17S7,33.374,7,24S14.626,7,24,7z"/>
+                  <path fill="#F44336" d="M27.279,22.062L36,12l-10.062,8.721C26.545,21.034,27.423,21.579,27.279,22.062z"/>
+                  <path fill="#ECEFF1" d="M20.721,25.938L12,36l10.062-8.721C21.455,26.966,20.577,26.421,20.721,25.938z"/>
+                  <circle cx="24" cy="24" r="2" fill="#CFD8DC"/>
+                </svg>
+                <div class="device-info">
+                  <strong>Safari</strong>
+                  <span>Macbook</span>
+                </div>
+              </div>
+              <div class="col-ip">210.86.237.19</div>
+              <div class="col-ip">210.86.237.19</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <img
+        src="../assets/images/Trang_Chu/logo_Mye.png"
+        alt="Logo MYE"
+        class="footer-logo"
+      />
+      <div>Email: hotro@mye.vn</div>
+      <div>Hotline: 0902 500 198</div>
+      <div class="footer-company-name">CÔNG TY CỔ PHẦN MYE</div>
+      <div class="footer-text">
+        Chịu trách nhiệm quản lý nội dung: Ông Lâm Trung Hiệp<br>
+        Địa chỉ: 477/22 Âu Cơ, Phường Phú Trung, Quận Tân Phú, Thành phố Hồ Chí Minh, Việt Nam<br>
+        Giấy phép G1 số: Số 297/GP-BTTTT. Ngày cấp 14/07/2020, Nơi cấp Bộ Thông Tin và Truyền Thông<br>
+        Điều khoản dịch vụ | Chính sách bảo mật<br>
+        @Copyright © 2026 MYE. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom JS -->
+  <script src="../assets/js/Tai_khoan.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

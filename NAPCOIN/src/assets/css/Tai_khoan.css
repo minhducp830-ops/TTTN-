@@ -1,0 +1,719 @@
+/* ============================================================
+   TAI_KHOAN.CSS  –  MYE Platform
+   Stack: Bootstrap 5 + Custom CSS
+   ============================================================ */
+
+/* ---------- Reset / Base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #FFFFFF; 
+  color: #282828;
+  min-width: 1400px;
+}
+a { text-decoration: none; color: inherit; }
+
+/* ============================================================
+   BANNER HEADER
+   ============================================================ */
+.account-banner {
+  width: 100%;
+  height: 300px;
+  background: url('../images/tai_khoan/bannerdautrang.png') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.banner-inner {
+  width: 1320px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Avatar: Vòng ngoài 240x240, ảnh trong 160x160 */
+.avatar-container {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 40px;
+}
+.avatar-bg {
+  width: 220px; /* Ước chừng vòng cyan */
+  height: 220px;
+  border-radius: 50%;
+  background: #11D4E0; /* Màu cyan */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.avatar-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Banner Info */
+.banner-info {
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.user-name {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.info-row {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.info-row i {
+  margin-right: 10px;
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+/* Banner Tabs */
+.banner-tabs {
+  position: absolute;
+  right: 0;
+  bottom: 40px;
+  display: flex;
+  gap: 15px;
+}
+.banner-tab-btn {
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.4);
+  background: transparent;
+  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.banner-tab-btn:hover {
+  background: rgba(255,255,255,0.1);
+}
+.banner-tab-btn.active {
+  background: #3B82F6; /* Màu ACTION xanh lam */
+  border-color: #3B82F6;
+}
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+.main-container {
+  width: 1320px;
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+/* Mức độ bảo mật */
+.security-level-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+}
+.security-chart {
+  width: 200px;
+  height: 200px;
+  margin-right: 40px;
+}
+.security-chart img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.security-text h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #282828;
+  margin-bottom: 10px;
+}
+.security-text p {
+  font-size: 14px;
+  color: #555555;
+}
+
+/* Thông tin tài khoản Header */
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #282828;
+  margin-bottom: 8px;
+}
+.section-subtitle {
+  font-size: 14px;
+  color: #555555;
+  margin-bottom: 30px;
+}
+
+/* Card Chung */
+.account-card {
+  width: 1320px;
+  border: 1px solid #EBEBEB;
+  border-radius: 12px;
+  padding: 40px;
+  margin-bottom: 30px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+/* Card Header */
+.card-header-custom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.card-title-group {
+  display: flex;
+  align-items: center;
+}
+.card-icon-bg {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #11D4E0; /* Cyan */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+.card-icon-bg img {
+  width: 50px;
+  height: 50px;
+}
+.card-title-text h4 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #093A88; /* BRAND */
+  margin: 0 0 5px 0;
+}
+.card-title-text span {
+  font-size: 13px;
+  color: #FF7900; /* PRIMARY orange */
+}
+
+/* Nút bấm trong card */
+.btn-outline-orange, .btn-remove-all {
+  height: 40px;
+  padding: 0 25px;
+  border: 1px solid #FF7900;
+  color: #FF7900;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-outline-orange {
+  background: #FFFFFF;
+}
+.btn-remove-all {
+  background: transparent;
+}
+.btn-outline-orange:hover, .btn-remove-all:hover {
+  background: #FF7900;
+  color: #FFFFFF;
+}
+
+/* Các dòng thông tin (Data Row) */
+.data-row {
+  display: flex;
+  align-items: center;
+  padding: 25px 0;
+  border-bottom: 1px solid #EBEBEB;
+}
+.data-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.data-label {
+  width: 300px; /* Khung cố định cho nhãn */
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #093A88;
+}
+.data-label i {
+  width: 24px;
+  font-size: 20px;
+  margin-right: 15px;
+  color: #093A88;
+}
+.data-value {
+  flex: 1;
+  font-size: 15px;
+  color: #555555;
+  display: flex;
+  align-items: center;
+}
+.icon-check-green {
+  color: #22C55E;
+  margin-left: 10px;
+  font-size: 18px;
+}
+.text-italic-gray {
+  font-style: italic;
+  color: #A0A0A0;
+}
+
+/* ---------------------------------
+   ĐỒNG BỘ TÀI KHOẢN (Mới)
+------------------------------------ */
+/* Trạng thái mặc định (Hình 1) */
+.sync-row-default {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #EBEBEB;
+  border-radius: 8px;
+  padding: 15px 30px;
+  width: 1240px; /* Tổng kích thước card 1320 trừ padding */
+  max-width: 100%;
+}
+
+.sync-item-group {
+  display: flex;
+  align-items: center;
+}
+.sync-square-icon {
+  width: 45px;
+  height: 45px;
+  background: #EAF0FF; /* Xanh nhạt nền icon */
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  color: #093A88;
+  font-size: 20px;
+}
+.sync-text-group {
+  display: flex;
+  flex-direction: column;
+}
+.sync-text-group strong {
+  font-size: 15px;
+  color: #282828;
+}
+.sync-text-group span {
+  font-size: 13px;
+  color: #555555;
+}
+
+.sync-arrow-icon {
+  font-size: 24px;
+  color: #C4C4C4;
+}
+
+.btn-disabled-gray {
+  background: #C4C4C4;
+  color: #FFFFFF;
+}
+
+/* Trạng thái mở rộng (Hình 2) */
+.sync-row-expanded {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #EBEBEB;
+  border-radius: 8px;
+  padding: 15px 30px;
+  width: 1240px;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.sync-text-value {
+  font-size: 15px;
+  color: #555555;
+}
+
+.sync-warning-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFDF5; /* Màu vàng nhạt nhẹ */
+  border-radius: 8px;
+  padding: 20px;
+  width: 1240px;
+  max-width: 100%;
+  font-size: 14px;
+  color: #282828;
+}
+.sync-warning-box i {
+  font-size: 20px;
+  color: #093A88;
+  margin-right: 10px;
+}
+
+/* ---------------------------------
+   MÀN HÌNH SOCIAL (FB/GG)
+------------------------------------ */
+.btn-not-synced, .btn-synced, .btn-disabled-gray {
+  height: 35px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.btn-not-synced {
+  background: #FCE1E1; /* Hồng nhạt */
+  color: #FA5655;      /* Đỏ */
+}
+
+.btn-synced {
+  background: #D1F0E4; /* Xanh ngọc nhạt */
+  color: #10B981;      /* Xanh lá */
+}
+
+.sync-form-container {
+  width: 1240px;
+  max-width: 100%;
+  margin-top: 20px;
+}
+.sync-form-text {
+  font-size: 14px;
+  color: #555555;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+}
+.sync-form-text span {
+  border: 1px solid #EBEBEB;
+  padding: 4px 12px;
+  margin-left: 10px;
+  border-radius: 4px;
+}
+
+.mye-input-wrapper {
+  position: relative;
+  width: 1160px;
+  max-width: 100%;
+  margin: 0 auto 25px auto;
+}
+.mye-input-label {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: #FFFFFF;
+  padding: 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #282828;
+}
+.mye-input-field {
+  width: 100%;
+  height: 64px;
+  border: 1px solid #D0D0D0;
+  border-radius: 8px;
+  padding: 0 20px;
+  font-size: 15px;
+  outline: none;
+}
+.mye-input-field::placeholder {
+  color: #A0A0A0;
+}
+.mye-input-field:focus {
+  border-color: #093A88;
+}
+
+.btn-submit-sync {
+  width: 1160px;
+  max-width: 100%;
+  height: 56px;
+  background: #093A88;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+}
+.btn-submit-sync:hover {
+  background: #072a64;
+}
+
+.sync-success-box {
+  width: 1160px;
+  max-width: 100%;
+  height: 102px;
+  margin: 20px auto 0 auto;
+  background: #E8F5E9; /* Xanh lá nhạt */
+  border: 1px solid #C8E6C9;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: #282828;
+}
+.sync-success-box i {
+  color: #10B981;
+  font-size: 24px;
+  margin-right: 15px;
+}
+
+/* Nút mũi tên Chevron bên phải Card header */
+.card-chevron-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #093A88;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #093A88;
+  font-size: 20px;
+  cursor: pointer;
+  background: #fff;
+  transition: all 0.2s;
+}
+.card-chevron-btn:hover {
+  background: #093A88;
+  color: #fff;
+}
+
+/* ---------------------------------
+   CHỈNH SỬA THÔNG TIN CÁ NHÂN
+------------------------------------ */
+.btn-outline-gray, .btn-solid-orange {
+  padding: 8px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: 40px;
+}
+
+.btn-outline-gray {
+  border: 1px solid #C4C4C4;
+  color: #555555;
+  background: transparent;
+}
+.btn-outline-gray:hover {
+  background: #F8F9FA;
+}
+
+.btn-solid-orange {
+  border: none;
+  background: #F26522;
+  color: #FFFFFF;
+}
+.btn-solid-orange:hover {
+  background: #E55512;
+}
+
+.info-edit-input {
+  width: 400px;
+  max-width: 100%;
+  height: 44px;
+  border: 1px solid #D9D9D9;
+  border-radius: 6px;
+  padding: 0 15px;
+  font-size: 15px;
+  color: #282828;
+  outline: none;
+  font-family: inherit;
+}
+.info-edit-input:focus {
+  border-color: #093A88;
+}
+
+.info-edit-select {
+  width: 400px;
+  max-width: 100%;
+  height: 44px;
+  border: 1px solid #D9D9D9;
+  border-radius: 6px;
+  padding: 0 15px;
+  font-size: 15px;
+  color: #282828;
+  outline: none;
+  font-family: inherit;
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+
+/* ---------------------------------
+   LỊCH SỬ HOẠT ĐỘNG
+------------------------------------ */
+.history-section {
+  padding-left: 20px;
+}
+
+.history-title-main {
+  font-size: 16px;
+  font-weight: 700;
+  color: #282828;
+  margin-bottom: 5px;
+}
+.history-title-sub {
+  font-size: 14px;
+  color: #555555;
+  margin-bottom: 20px;
+}
+
+.history-warning-box {
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  width: 1240px;
+  max-width: 100%;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Drop shadow from Figma */
+}
+.history-warning-text p {
+  font-size: 15px;
+  color: #282828;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+}
+.history-warning-text span {
+  font-size: 13px;
+  color: #093A88; /* Màu xanh đậm cho Lưu ý */
+  font-style: italic;
+}
+
+/* .btn-remove-all has been merged with .btn-outline-orange above to enforce DRY */
+
+.history-table {
+  width: 1240px;
+  max-width: 100%;
+}
+.history-header-row {
+  display: flex;
+  font-weight: 700;
+  font-size: 15px;
+  color: #093A88;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #FF7900;
+  margin-bottom: 15px;
+}
+.history-data-row {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #555555;
+  padding: 15px 0;
+  border-bottom: 1px solid #EBEBEB;
+}
+.history-data-row:last-child {
+  border-bottom: none;
+}
+.col-time {
+  width: 25%;
+  display: flex;
+  align-items: center;
+}
+.col-time i {
+  margin-right: 8px;
+  font-size: 16px;
+  color: #093A88;
+}
+.col-activity {
+  width: 30%;
+  font-weight: 600;
+  color: #282828;
+}
+.col-device {
+  width: 25%;
+  display: flex;
+  align-items: center;
+}
+.device-icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+}
+.device-info {
+  display: flex;
+  flex-direction: column;
+}
+.device-info strong {
+  font-size: 14px;
+  color: #282828;
+}
+.device-info span {
+  font-size: 12px;
+  color: #A0A0A0;
+}
+.col-ip {
+  width: 20%;
+  color: #3B82F6; /* Xanh link */
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  width: 100%;
+  height: 368px;
+  background: #EBEBEB; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  color: #555555;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.footer-logo {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+  margin-bottom: -60px; 
+}
+
+.footer-company-name {
+  font-weight: 700;
+  color: #282828;
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+.footer-text {
+  font-size: 13px;
+  color: #666;
+}
